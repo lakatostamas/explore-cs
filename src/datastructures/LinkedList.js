@@ -19,6 +19,22 @@ class LinkedList {
 
     this.head = node;
   }
+
+  addToTail(value) {
+    const node = new Node({
+      value,
+      next: null,
+      prev: this.tail,
+    });
+
+    if (this.tail) {
+      this.tail.next = node;
+    } else {
+      this.head = node;
+    }
+
+    this.tail = node;
+  }
 }
 
 class Node {

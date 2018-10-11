@@ -32,3 +32,26 @@ test('LinkedList addTohead works on non-empty list', () => {
   expect(firstNode.value).toBe(20);
   expect(secondNode.value).toBe(10);
 });
+
+test('LinkedList addToTail works on empty list', () => {
+  const linkedList = new LinkedList();
+  const expectedNode = {
+    prev: null,
+    next: null,
+    value: 10,
+  };
+
+  linkedList.addToTail(10);
+
+  expect(linkedList.tail).toEqual(expectedNode);
+});
+
+test('LinkedList addToTail works on non-empty list', () => {
+  const linkedList = new LinkedList();
+
+  linkedList.addToTail(10);
+  linkedList.addToTail(15);
+
+  expect(linkedList.tail.value).toBe(15);
+  expect(linkedList.tail.prev.value).toBe(10);
+});
