@@ -67,3 +67,40 @@ test('LinkedList addToHead and addToHead works on the same LinkedList', () => {
   expect(linkedList.head.next).toEqual(linkedList.tail);
   expect(linkedList.tail.prev).toEqual(linkedList.head);
 });
+
+test('LinkedList delete should remove the selected node', () => {
+  const linkedList = new LinkedList();
+
+  linkedList.addToHead(10);
+  linkedList.addToTail(12);
+  linkedList.addToTail(13);
+  linkedList.addToTail(15);
+
+  linkedList.delete(12);
+
+  expect(linkedList.head.next.value).toBe(13);
+});
+
+test('LinkedList delete should remove the head node', () => {
+  const linkedList = new LinkedList();
+
+  linkedList.addToHead(10);
+  linkedList.addToTail(12);
+  linkedList.addToTail(15);
+
+  linkedList.delete(10);
+
+  expect(linkedList.head.value).toBe(12);
+});
+
+test('LinkedList delete should remove the tail node', () => {
+  const linkedList = new LinkedList();
+
+  linkedList.addToHead(10);
+  linkedList.addToTail(12);
+  linkedList.addToTail(15);
+
+  linkedList.delete(15);
+
+  expect(linkedList.tail.value).toBe(12);
+});
