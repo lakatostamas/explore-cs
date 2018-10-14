@@ -36,16 +36,19 @@ class LinkedList {
     this.tail = node;
   }
 
+  findNode(value) {
+    let selectedNode = this.head;
+
+    while (selectedNode && selectedNode.value !== value) {
+      selectedNode = selectedNode.next;
+    }
+
+    return selectedNode;
+  }
+
   delete(value) {
     if (!this.head) {
       return null;
-    }
-
-    let deletedNode = null;
-
-    if (this.head.value === value) {
-      deletedNode = this.head;
-      this.head = this.head.next;
     }
 
     if (!deletedNode) {
@@ -69,6 +72,8 @@ class LinkedList {
 
     if (deletedNode.prev) {
       deletedNode.prev.next = deletedNode.next;
+    } else {
+      this.head = deletedNode.next;
     }
 
     if (deletedNode.next) {
