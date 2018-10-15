@@ -104,3 +104,17 @@ test('LinkedList delete should remove the tail node', () => {
 
   expect(linkedList.tail.value).toBe(12);
 });
+
+test('LinkedList findNode should return the first node with the correct value', () => {
+  const linkedList = new LinkedList();
+
+  linkedList.addToHead(10);
+  linkedList.addToTail(12);
+  linkedList.addToTail(15);
+
+  const selectedNode = linkedList.findNode(12);
+
+  expect(selectedNode.value).toBe(12);
+  expect(selectedNode.prev.value).toBe(10);
+  expect(selectedNode.next.value).toBe(15);
+});
