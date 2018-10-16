@@ -51,20 +51,7 @@ class LinkedList {
       return null;
     }
 
-    if (!deletedNode) {
-      let currentNode = this.head;
-
-      if (currentNode) {
-        while (currentNode.next) {
-          currentNode = currentNode.next;
-
-          if (currentNode.value === value) {
-            deletedNode = currentNode;
-            break;
-          }
-        }
-      }
-    }
+    const deletedNode = this.findNode(value);
 
     if (!deletedNode) {
       return null;
