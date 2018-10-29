@@ -71,6 +71,21 @@ class LinkedList {
 
     return deletedNode;
   }
+
+  reverse() {
+    let current = this.head;
+    let temp;
+
+    while (current !== null) {
+      temp = current.prev;
+      current.prev = current.next;
+      current.next = temp;
+      current = current.prev;
+    }
+
+    this.tail = this.head;
+    this.head = temp.prev;
+  }
 }
 
 class Node {
