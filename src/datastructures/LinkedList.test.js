@@ -118,3 +118,18 @@ test('LinkedList findNode should return the first node with the correct value', 
   expect(selectedNode.prev.value).toBe(10);
   expect(selectedNode.next.value).toBe(15);
 });
+
+test('LinkedList reverse should reverse the LinkedList', () => {
+  const linkedList = new LinkedList();
+
+  linkedList.addToTail(10);
+  linkedList.addToTail(11);
+  linkedList.addToTail(12);
+  linkedList.addToTail(13);
+
+  linkedList.reverse();
+
+  expect(linkedList.head.value).toBe(13);
+  expect(linkedList.tail.value).toBe(10);
+  expect(linkedList.head.next.value).toBe(12);
+});
