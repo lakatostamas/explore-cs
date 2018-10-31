@@ -1,4 +1,4 @@
-class LinkedList {
+class DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -96,4 +96,4 @@ class Node {
   }
 }
 
-export default LinkedList;
+export default DoublyLinkedList;
