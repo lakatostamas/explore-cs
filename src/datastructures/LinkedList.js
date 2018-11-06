@@ -19,6 +19,16 @@ class LinkedList {
 
     this.tail = newNode;
   }
+
+  find(value) {
+    let currentNode = this.head;
+
+    while (currentNode && currentNode.value !== value) {
+      currentNode = currentNode.next;
+    }
+
+    return currentNode;
+  }
 }
 
 class Node {
