@@ -39,3 +39,23 @@ test('LinkedList addToTail works on non-empty list', () => {
 
   expect(linkedList.tail.value).toBe(6);
 });
+
+test('LinkedList find returns the correct node', () => {
+  const linkedList = new LinkedList();
+
+  linkedList.addToHead(7);
+  linkedList.addToHead(10);
+  linkedList.addToTail(5);
+
+  const actualNode = linkedList.find(10);
+
+  expect(actualNode.next.value).toBe(7);
+});
+
+test('LinkedList find works on an empty list', () => {
+  const linkedList = new LinkedList();
+
+  const actualNode = linkedList.find();
+
+  expect(actualNode).toBeNull();
+});
