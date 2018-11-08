@@ -133,3 +133,21 @@ test('DoublyLinkedList reverse should reverse the DoublyLinkedList', () => {
   expect(doublyLinkedList.tail.value).toBe(10);
   expect(doublyLinkedList.head.next.value).toBe(12);
 });
+
+test('DoublyLinkedList delete should work on empty list', () => {
+  const doublyLinkedList = new DoublyLinkedList();
+
+  const deletedNode = doublyLinkedList.delete(10);
+
+  expect(deletedNode).toBeNull();
+});
+
+test('DoublyLinkedList delete should return null if the deletedNode does not exist', () => {
+  const doublyLinkedList = new DoublyLinkedList();
+
+  doublyLinkedList.addToHead(11);
+
+  const deletedNode = doublyLinkedList.delete(10);
+
+  expect(deletedNode).toBeNull();
+});
