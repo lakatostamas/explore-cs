@@ -8,6 +8,10 @@ class LinkedList {
     const newNode = new Node(value);
     newNode.next = this.head;
     this.head = newNode;
+
+    if (!this.tail) {
+      this.tail = newNode;
+    }
   }
 
   addToTail(value) {
@@ -15,6 +19,10 @@ class LinkedList {
 
     if (this.tail) {
       this.tail.next = newNode;
+    }
+
+    if (!this.head) {
+      this.head = newNode;
     }
 
     this.tail = newNode;
