@@ -52,6 +52,18 @@ test('LinkedList find returns the correct node', () => {
   expect(actualNode.next.value).toBe(7);
 });
 
+test('LinkedList find returns the correct node (not head)', () => {
+  const linkedList = new LinkedList();
+
+  linkedList.addToHead(7);
+  linkedList.addToHead(10);
+  linkedList.addToTail(5);
+
+  const actualNode = linkedList.find(7);
+
+  expect(actualNode.next.value).toBe(5);
+});
+
 test('LinkedList find works on an empty list', () => {
   const linkedList = new LinkedList();
 
