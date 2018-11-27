@@ -14,18 +14,21 @@ class LinkedList {
     }
   }
 
-  addToTail(value) {
+  addNode(value) {
     const newNode = new Node(value);
-
-    if (this.tail) {
-      this.tail.next = newNode;
-    }
 
     if (!this.head) {
       this.head = newNode;
+      return;
     }
 
-    this.tail = newNode;
+    let currentNode = this.head;
+
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
+    }
+
+    currentNode.next = newNode;
   }
 
   find(value) {
