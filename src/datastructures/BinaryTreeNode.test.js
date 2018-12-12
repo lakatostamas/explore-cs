@@ -27,3 +27,15 @@ test('Binary tree set left increases height', () => {
 
   expect(binaryTreeNode.height).toBe(2);
 });
+
+test('Binary tree traverseInOrder', () => {
+  const binaryTreeNode = new BinaryTreeNode(5);
+  const leftNode = new BinaryTreeNode(1);
+  const rightNode = new BinaryTreeNode(10);
+
+  binaryTreeNode
+    .setLeft(leftNode)
+    .setRight(rightNode);
+
+  expect(binaryTreeNode.traverseInOrder()).toEqual([1, 5, 10]);
+});
