@@ -61,6 +61,22 @@ class BinaryTreeNode {
 
     return result;
   }
+
+  traversePreOrder() {
+    let result = [];
+
+    result.push(this.value);
+
+    if (this.left) {
+      result = result.concat(this.left.traverseInOrder());
+    }
+
+    if (this.right) {
+      result = result.concat(this.right.traverseInOrder());
+    }
+
+    return result;
+  }
 }
 
 export default BinaryTreeNode;
