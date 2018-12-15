@@ -68,11 +68,11 @@ class BinaryTreeNode {
     result.push(this.value);
 
     if (this.left) {
-      result = result.concat(this.left.traverseInOrder());
+      result = result.concat(this.left.traversePreOrder());
     }
 
     if (this.right) {
-      result = result.concat(this.right.traverseInOrder());
+      result = result.concat(this.right.traversePreOrder());
     }
 
     return result;
