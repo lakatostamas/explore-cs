@@ -77,6 +77,22 @@ class BinaryTreeNode {
 
     return result;
   }
+
+  traversePostOrder() {
+    let result = [];
+
+    if (this.left) {
+      result = result.concat(this.left.traversePostOrder());
+    }
+
+    if (this.right) {
+      result = result.concat(this.right.traversePostOrder());
+    }
+
+    result.push(this.value);
+
+    return result;
+  }
 }
 
 export default BinaryTreeNode;
