@@ -51,3 +51,15 @@ test('Binary tree traversePreOrder', () => {
 
   expect(binaryTreeNode.traversePreOrder()).toEqual([5, 1, 10]);
 });
+
+test('Binary tree traversePostOrder', () => {
+  const binaryTreeNode = new BinaryTreeNode(5);
+  const leftNode = new BinaryTreeNode(1);
+  const rightNode = new BinaryTreeNode(10);
+
+  binaryTreeNode
+    .setLeft(leftNode)
+    .setRight(rightNode);
+
+  expect(binaryTreeNode.traversePostOrder()).toEqual([1, 10, 5]);
+});
