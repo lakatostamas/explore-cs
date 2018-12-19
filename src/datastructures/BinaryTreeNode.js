@@ -93,6 +93,20 @@ class BinaryTreeNode {
 
     return result;
   }
+
+  removeChild(node) {
+    if (this.left && this.left.value === node.value) {
+      this.left = null;
+      return true;
+    }
+
+    if (this.right && this.right.value === node.value) {
+      this.right = null;
+      return true;
+    }
+
+    return false;
+  }
 }
 
 export default BinaryTreeNode;
