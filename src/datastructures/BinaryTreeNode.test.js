@@ -63,3 +63,25 @@ test('Binary tree traversePostOrder', () => {
 
   expect(binaryTreeNode.traversePostOrder()).toEqual([1, 10, 5]);
 });
+
+test('Binary tree removeChild -- left', () => {
+  const binaryTreeNode = new BinaryTreeNode(5);
+  const leftNode = new BinaryTreeNode(1);
+
+  binaryTreeNode
+    .setLeft(leftNode);
+
+  expect(binaryTreeNode.removeChild(leftNode)).toBeTruthy();
+  expect(binaryTreeNode.left).toBeNull();
+});
+
+test('Binary tree removeChild -- right', () => {
+  const binaryTreeNode = new BinaryTreeNode(5);
+  const rightNode = new BinaryTreeNode(1);
+
+  binaryTreeNode
+    .setRight(rightNode);
+
+  expect(binaryTreeNode.removeChild(rightNode)).toBeTruthy();
+  expect(binaryTreeNode.right).toBeNull();
+});
