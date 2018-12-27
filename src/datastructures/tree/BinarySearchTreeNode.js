@@ -11,7 +11,7 @@ class BinarySearchTreeNode extends BinaryTreeNode {
       return this;
     }
 
-    if (this.value < value) {
+    if (this.value > value) {
       if (this.left) {
         return this.left.insert(value);
       }
@@ -22,7 +22,7 @@ class BinarySearchTreeNode extends BinaryTreeNode {
       return newNode;
     }
 
-    if (this.value > value) {
+    if (this.value < value) {
       if (this.right) {
         return this.right.insert(value);
       }
