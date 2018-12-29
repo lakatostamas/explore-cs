@@ -31,3 +31,29 @@ test('BinarySearchListNode should insert unique numbers', () => {
 
   expect(bstNode.right.value).toBe(10);
 });
+
+test('BinarySearchListNode find should return the correct node', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(10);
+  bstNode.insert(22);
+  bstNode.insert(33);
+  bstNode.insert(3);
+  bstNode.insert(5);
+
+  const foundNode = bstNode.find(5);
+
+  expect(foundNode.value).toBe(5);
+  expect(foundNode.parent.value).toBe(3);
+});
+
+test('BinarySearchListNode find should return null if the node not exist', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(10);
+  bstNode.insert(5);
+
+  const foundNode = bstNode.find(200);
+
+  expect(foundNode).toBeNull();
+});
