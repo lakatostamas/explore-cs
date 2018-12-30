@@ -35,6 +35,22 @@ class BinarySearchTreeNode extends BinaryTreeNode {
 
     return this;
   }
+
+  find(value) {
+    if (this.value === value) {
+      return this;
+    }
+
+    if (value < this.value && this.left) {
+      return this.left.find(value);
+    }
+
+    if (value > this.value && this.right) {
+      return this.right.find(value);
+    }
+
+    return null;
+  }
 }
 
 export default BinarySearchTreeNode;
