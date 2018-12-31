@@ -51,6 +51,10 @@ class BinarySearchTreeNode extends BinaryTreeNode {
 
     return null;
   }
+
+  contains(value) {
+    return !!this.find(value);
+  }
 }
 
 export default BinarySearchTreeNode;
