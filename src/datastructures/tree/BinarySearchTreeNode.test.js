@@ -57,3 +57,25 @@ test('BinarySearchListNode find should return null if the node not exist', () =>
 
   expect(foundNode).toBeNull();
 });
+
+test('BinarySearchListNode contain should return true if the node is exist in the tree', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(10);
+  bstNode.insert(5);
+
+  const isContains = bstNode.contains(10);
+
+  expect(isContains).toBeTruthy();
+});
+
+test('BinarySearchListNode contain should return true if the node is exist in the tree', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(10);
+  bstNode.insert(5);
+
+  const isContains = bstNode.contains(11);
+
+  expect(isContains).toBeFalsy();
+});
