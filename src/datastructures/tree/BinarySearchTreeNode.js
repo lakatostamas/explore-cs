@@ -55,6 +55,14 @@ class BinarySearchTreeNode extends BinaryTreeNode {
   contains(value) {
     return !!this.find(value);
   }
+
+  findMin() {
+    if (!this.left) {
+      return this;
+    }
+
+    return this.left.findMin();
+  }
 }
 
 export default BinarySearchTreeNode;
