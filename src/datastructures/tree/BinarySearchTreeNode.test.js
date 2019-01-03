@@ -79,3 +79,25 @@ test('BinarySearchListNode contain should return true if the node is exist in th
 
   expect(isContains).toBeFalsy();
 });
+
+test('BinarySearchListNode findMin should return the node with the lowest value', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(10);
+  bstNode.insert(5);
+
+  const minNode = bstNode.findMin();
+
+  expect(minNode.value).toBe(5);
+});
+
+test('BinarySearchListNode findMin should return the node with the lowest value (root)', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(5);
+  bstNode.insert(10);
+
+  const minNode = bstNode.findMin();
+
+  expect(minNode.value).toBe(5);
+});
