@@ -85,3 +85,12 @@ test('Binary tree removeChild -- right', () => {
   expect(binaryTreeNode.removeChild(rightNode)).toBeTruthy();
   expect(binaryTreeNode.right).toBeNull();
 });
+
+test('Binary tree setValue', () => {
+  const binaryTreeNode = new BinaryTreeNode(5);
+
+  binaryTreeNode
+    .setValue(10);
+
+  expect(binaryTreeNode.value).toBe(10);
+});
