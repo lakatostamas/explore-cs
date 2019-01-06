@@ -101,3 +101,126 @@ test('BinarySearchListNode findMin should return the node with the lowest value 
 
   expect(minNode.value).toBe(5);
 });
+
+test('BinarySearchListNode remove should remove a leaf', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(5);
+  bstNode.insert(10);
+
+  bstNode.remove(10);
+  expect(bstNode.height).toBe(0);
+  expect(bstNode.left).toBeNull();
+  expect(bstNode.right).toBeNull();
+});
+
+test('BinarySearchListNode remove should remove a node with one child', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(5);
+  bstNode.insert(10);
+  bstNode.insert(11);
+
+  bstNode.remove(10);
+  expect(bstNode.height).toBe(1);
+  expect(bstNode.right.value).toBe(11);
+});
+
+test('BinarySearchListNode remove should remove the root with one child', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(5);
+  bstNode.insert(10);
+  bstNode.insert(11);
+
+  bstNode.remove(5);
+
+  expect(bstNode.value).toBe(10);
+  expect(bstNode.right.value).toBe(11);
+});
+
+test('BinarySearchListNode remove should remove the root with one child', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(5);
+  bstNode.insert(10);
+  bstNode.insert(11);
+
+  bstNode.remove(5);
+
+  expect(bstNode.value).toBe(10);
+  expect(bstNode.right.value).toBe(11);
+});
+
+test('BinarySearchListNode remove should remove a node with two children', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(5);
+  bstNode.insert(2);
+  bstNode.insert(1);
+  bstNode.insert(4);
+
+  bstNode.remove(2);
+
+  expect(bstNode.left.value).toBe(4);
+  expect(bstNode.left.left.value).toBe(1);
+});
+
+test('BinarySearchListNode remove should remove a node with two children', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(50);
+  bstNode.insert(70);
+  bstNode.insert(20);
+  bstNode.insert(10);
+  bstNode.insert(40);
+  bstNode.insert(38);
+  bstNode.insert(35);
+  bstNode.insert(22);
+  bstNode.insert(28);
+  bstNode.insert(45);
+
+  bstNode.remove(20);
+
+  expect(bstNode.left.value).toBe(22);
+  expect(bstNode.left.left.value).toBe(10);
+  expect(bstNode.left.right.value).toBe(40);
+});
+
+test('BinarySearchListNode remove should the root with two children', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(50);
+  bstNode.insert(70);
+  bstNode.insert(20);
+  bstNode.insert(10);
+  bstNode.insert(40);
+  bstNode.insert(38);
+  bstNode.insert(35);
+  bstNode.insert(22);
+  bstNode.insert(28);
+  bstNode.insert(45);
+
+  bstNode.remove(50);
+
+  expect(bstNode.value).toBe(70);
+  expect(bstNode.right).toBeNull();
+  expect(bstNode.left.value).toBe(20);
+});
+
+test('BinarySearchListNode remove should throw an error if the node is not exist', () => {
+  const bstNode = new BinarySearchTreeNode(null);
+
+  bstNode.insert(50);
+  bstNode.insert(70);
+  bstNode.insert(20);
+  bstNode.insert(10);
+  bstNode.insert(40);
+  bstNode.insert(38);
+  bstNode.insert(35);
+  bstNode.insert(22);
+  bstNode.insert(28);
+  bstNode.insert(45);
+
+  expect(() => bstNode.remove(51)).toThrow();
+});
