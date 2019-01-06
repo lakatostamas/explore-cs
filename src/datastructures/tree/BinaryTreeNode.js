@@ -46,6 +46,12 @@ class BinaryTreeNode {
     return this;
   }
 
+  setValue(value) {
+    this.value = value;
+
+    return this;
+  }
+
   traverseInOrder() {
     let result = [];
 
