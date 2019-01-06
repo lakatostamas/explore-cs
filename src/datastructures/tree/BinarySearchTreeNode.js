@@ -63,6 +63,58 @@ class BinarySearchTreeNode extends BinaryTreeNode {
 
     return this.left.findMin();
   }
+
+  remove(value) {
+    const nodeToRemove = this.find(value);
+
+    if (!nodeToRemove) {
+      throw new Error('Node not found');
+    }
+
+    if (!nodeToRemove.left && !nodeToRemove.right) {
+      const { parent } = nodeToRemove;
+
+      if (parent) {
+        parent.removeChild(nodeToRemove);
+        nodeToRemove.parent = null;
+        return true;
+      }
+    }
+
+    if (nodeToRemove.left && nodeToRemove.right) {
+      const minNodeInTheRightTree = nodeToRemove.right.findMin();
+      this.remove(minNodeInTheRightTree.value);
+
+      nodeToRemove.setValue(minNodeInTheRightTree.value);
+      nodeToRemove.parent = null;
+      return true;
+    }
+
+    // nodeToRemove has only one child
+    const childNodeOfNodeToRemove = nodeToRemove.left || nodeToRemove.right;
+    const { parent } = nodeToRemove;
+
+    if (parent) {
+      if (parent.left && parent.left.value === nodeToRemove.value) {
+        parent.left = childNodeOfNodeToRemove;
+      } else {
+        parent.right = childNodeOfNodeToRemove;
+      }
+
+      parent.removeChild(nodeToRemove);
+      nodeToRemove.parent = null;
+      return true;
+    }
+
+    // if nodeToRemove is the root
+    nodeToRemove.setValue(childNodeOfNodeToRemove.value);
+    nodeToRemove.setRight(childNodeOfNodeToRemove.right);
+    nodeToRemove.setLeft(childNodeOfNodeToRemove.left);
+
+    nodeToRemove.parent = null;
+
+    return true;
+  }
 }
 
 export default BinarySearchTreeNode;
