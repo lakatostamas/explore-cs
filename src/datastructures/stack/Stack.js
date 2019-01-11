@@ -4,6 +4,10 @@ class Stack {
     this.stack = [];
   }
 
+  get length() {
+    return this.stack.length;
+  }
+
   isEmpty() {
     return !this.stack.length;
   }
