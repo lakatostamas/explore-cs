@@ -13,7 +13,7 @@ class Stack {
   }
 
   push(item) {
-    if (this.stack.length === this.maxSize - 1) {
+    if (this.stack.length === this.maxSize) {
       throw new Error('Stack Overflow');
     }
 
