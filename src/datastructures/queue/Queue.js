@@ -20,7 +20,7 @@ class Queue {
     return !this.queue.length;
   }
 
-  add(item) {
+  push(item) {
     if (this.isFull()) {
       throw new Error('the queue is full');
     }
