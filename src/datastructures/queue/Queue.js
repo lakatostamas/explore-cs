@@ -12,6 +12,10 @@ class Queue {
     return this.queue[this.queue.length - 1];
   }
 
+  get length() {
+    return this.queue.length;
+  }
+
   isFull() {
     return this.queue.length === this.capacity;
   }
