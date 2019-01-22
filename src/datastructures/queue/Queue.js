@@ -33,11 +33,11 @@ class Queue {
   }
 
   remove() {
-    if (this.empty()) {
+    if (this.isEmpty()) {
       throw new Error('the queue is empty');
     }
 
-    this.queue.shift();
+    return this.queue.shift();
   }
 }
 
