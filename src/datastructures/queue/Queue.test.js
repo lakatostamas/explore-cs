@@ -69,4 +69,13 @@ describe('Queue', () => {
 
     expect(queue.rear).toBe(3);
   });
+
+  test('it should return true if the queue is full', () => {
+    const queue = new Queue(2);
+
+    queue.push(1);
+    queue.push(2);
+
+    expect(queue.isFull()).toBeTruthy();
+  });
 });
