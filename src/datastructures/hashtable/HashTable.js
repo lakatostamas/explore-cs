@@ -3,14 +3,14 @@ class HashTable {
     this.list = {};
   }
 
-  get(x) {
-    const key = hash(x);
+  get(key) {
+    const keyHash = hash(key);
 
-    if (!this.list[key]) {
+    if (!this.list[keyHash]) {
       return null;
     }
 
-    const result = this.list[key].find(pairs => pairs[0] === x);
+    const result = this.list[keyHash].find(pairs => pairs[0] === key);
 
     if (!result) {
       return null;
@@ -19,19 +19,21 @@ class HashTable {
     return result[1];
   }
 
-  set(x, y) {
-    const key = hash(x);
+  set(key, value) {
+    const keyHash = hash(key);
 
-    if (!this.list[key]) {
-      this.list[key] = [];
+    if (!this.list[keyHash]) {
+      this.list[keyHash] = [];
     }
 
-    this.list[key].push([x, y]);
+    this.list[keyHash].push([key, value]);
   }
 }
 
-function hash(x) {
-  // TODO: implement
+function hash(key) {
+  return Array.from(key).reduce((acc, keySymbol) => (
+    acc + keySymbol.charCodeAt(0)
+  ), 0);
 }
 
 export default HashTable;
