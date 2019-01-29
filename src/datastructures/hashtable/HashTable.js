@@ -1,6 +1,7 @@
 class HashTable {
-  constructor() {
-    this.list = {};
+  constructor(hashTableSize = 10) {
+    this.hashTableSize = hashTableSize;
+    this.list = [];
   }
 
   get(key) {
@@ -31,9 +32,11 @@ class HashTable {
 }
 
 function hash(key) {
-  return Array.from(key).reduce((acc, keySymbol) => (
+  const keyHash = Array.from(key).reduce((acc, keySymbol) => (
     acc + keySymbol.charCodeAt(0)
   ), 0);
+
+  return keyHash % this.hashTableSize;
 }
 
 export default HashTable;
