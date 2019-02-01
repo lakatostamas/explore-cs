@@ -27,7 +27,48 @@ class HashTable {
       this.buckets[keyHash] = [];
     }
 
-    this.buckets[keyHash].push([key, value]);
+    const currentBucket = this.buckets[keyHash];
+
+    const indexOfCurrentElement = currentBucket
+      .findIndex(([currKey]) => currKey === key);
+
+
+    if (indexOfCurrentElement === -1) {
+      currentBucket.push([key, value]);
+      return true;
+    }
+
+    this.buckets[keyHash] = [
+      ...currentBucket.slice(0, indexOfCurrentElement),
+      [key, value],
+      ...currentBucket.slice(indexOfCurrentElement + 1),
+    ];
+    return true;
+  }
+
+  remove(key) {
+    const keyHash = this.hash(key);
+
+    if (!this.buckets[keyHash]) {
+      return false;
+    }
+
+    const currentBucket = this.buckets[keyHash];
+
+    const indexOfCurrentElement = currentBucket
+      .findIndex(([currKey]) => currKey === key);
+
+
+    if (indexOfCurrentElement === -1) {
+      return false;
+    }
+
+    this.buckets[keyHash] = [
+      ...currentBucket.slice(0, indexOfCurrentElement),
+      ...currentBucket.slice(indexOfCurrentElement + 1),
+    ];
+
+    return true;
   }
 
   hash(key) {
