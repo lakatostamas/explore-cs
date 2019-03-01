@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/non-decreasing-array/submissions/
 function nonDecreasing(arr) {
   let changed = false;
 
@@ -10,7 +11,20 @@ function nonDecreasing(arr) {
       return false;
     }
 
-    arr[i] = arr[i - 1] || 1;
+    const nextValue = arr[i - 1];
+
+    if (nextValue > arr[i + 1]) {
+      arr[i + 1] = arr[i];
+      changed = true;
+    } else {
+      arr[i] = nextValue;
+      changed = true;
+    }
+
+    if (arr[i] > arr[i + 1]) {
+      return false;
+    }
+
     changed = true;
   }
 
